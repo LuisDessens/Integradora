@@ -78,7 +78,7 @@ namespace Integradora
             //productos
             try
             {
-                MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+                MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand("select Id_producto, producto from productos", cn);
                 MySqlDataReader lector = cmd.ExecuteReader();
@@ -97,7 +97,7 @@ namespace Integradora
             //usuarios
             try
             {
-                MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+                MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand("select Id_usuario, usuario from usuarios", cn);
                 MySqlDataReader lector = cmd.ExecuteReader();
@@ -134,7 +134,7 @@ namespace Integradora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             MySqlCommand cmd = new MySqlCommand("Select * from ventas where Id_producto like '%" + txtBuscar.Text.Trim() + "%' limit 50", cn);
             cn.Open();
             MySqlDataReader leer = cmd.ExecuteReader();
