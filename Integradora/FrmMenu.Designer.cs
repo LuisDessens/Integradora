@@ -45,6 +45,7 @@
             this.ventasdeunusuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.idiomaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnConexionBD = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,9 +197,25 @@
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
             this.englishToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
             this.englishToolStripMenuItem.Text = "ENGLISH";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // btnConexionBD
+            // 
+            this.btnConexionBD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConexionBD.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.btnConexionBD.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnConexionBD.FlatAppearance.BorderSize = 0;
+            this.btnConexionBD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConexionBD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnConexionBD.Location = new System.Drawing.Point(1273, 0);
+            this.btnConexionBD.Name = "btnConexionBD";
+            this.btnConexionBD.Size = new System.Drawing.Size(135, 28);
+            this.btnConexionBD.TabIndex = 3;
+            this.btnConexionBD.Text = "CONEXIÓN BD";
+            this.btnConexionBD.UseVisualStyleBackColor = false;
+            this.btnConexionBD.Click += new System.EventHandler(this.btnConexionBD_Click);
             // 
             // FrmMenu
             // 
@@ -206,6 +223,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Firebrick;
             this.ClientSize = new System.Drawing.Size(1408, 632);
+            this.Controls.Add(this.btnConexionBD);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FrmMenu";
@@ -213,6 +231,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MENU PRINCIPAL";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Activated += new System.EventHandler(this.FrmMenu_Activated);
             this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -240,5 +259,6 @@
         private System.Windows.Forms.ToolStripMenuItem ventasdeunusuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem idiomaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.Button btnConexionBD;
     }
 }

@@ -115,7 +115,7 @@ namespace Integradora
             //clientes
             try
             {
-                MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+                MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
                 cn.Open();
                 MySqlCommand cmd = new MySqlCommand("select Id_cliente, cliente  from clientes", cn);
                 MySqlDataReader lector = cmd.ExecuteReader();
@@ -153,18 +153,18 @@ namespace Integradora
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             MySqlCommand cmd = new MySqlCommand("insert into ventas values(null,'" + cmdIdProd.Text.Substring(0, 1) + "','" + txtPrecio.Text + "','" + cmdIdCliente.Text.Substring(0, 1) + "','" + cmdIdUsuario.Text.Substring(0, 1) + "','" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "')", cn); 
             cn.Open();
             cmd.ExecuteNonQuery();
             cn.Close();
             if (btnEnglish.Text.CompareTo("ENGLISH") == 0)
             {
-                MessageBox.Show("CLIENTE GUARDADO");
+                MessageBox.Show("VENTA GUARDADA");
             }
             else
             {
-                MessageBox.Show("CUSTOMER SAVED");
+                MessageBox.Show("SALE SAVED");
             }
 
             btnBuscar_Click(sender, e);
@@ -185,9 +185,9 @@ namespace Integradora
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
-            MySqlCommand cmd = new MySqlCommand("update ventas set Id_producto='" + cmdIdProd.Text.Trim() + "', precio='" + txtPrecio.Text.Trim() + "', Id_cliente='" + cmdIdCliente.Text.Trim() + "', Id_usuario='" + cmdIdUsuario.Text.Trim() + "', fecha='" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "' where Id_venta=" + txtIdVenta.Text.Trim(), cn);
+            MySqlCommand cmd = new MySqlCommand("update ventas set Id_producto='" + cmdIdProd.Text.Trim() + "', precio='" + cmdIdProd.Text.Substring(0, 1) + "', Id_cliente='" + cmdIdCliente.Text.Substring(0, 1) + "', Id_usuario='" + cmdIdUsuario.Text.Substring(0, 1) + "', fecha='" + dtpFecha.Value.ToString("yyyy-MM-dd HH:mm:ss") + "' where Id_venta=" + txtIdVenta.Text.Trim(), cn);
             cmd.ExecuteNonQuery();
             cn.Close();
             if (btnEnglish.Text.CompareTo("ENGLISH") == 0)
@@ -203,7 +203,7 @@ namespace Integradora
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("delete from ventas where Id_venta=" + txtIdVenta.Text, cn);
             MySqlDataReader leer = cmd.ExecuteReader();

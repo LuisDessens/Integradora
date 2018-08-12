@@ -74,7 +74,7 @@ namespace Integradora
                 btnSalir.Text = "SALIR";
             }
             //REPORTE
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("Select Id_producto, producto, precio, cantidad, estilo, talla, color from productos", cn);
             MySqlDataReader leer = cmd.ExecuteReader();

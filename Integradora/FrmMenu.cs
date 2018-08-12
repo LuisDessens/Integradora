@@ -14,6 +14,7 @@ namespace Integradora
     {
         public static string nivel;
         int contador;
+        Timer timer = new Timer();
         public FrmMenu()
         {
             InitializeComponent();
@@ -197,6 +198,24 @@ namespace Integradora
         {
             FrmVEUsuario VEUsuario = new FrmVEUsuario();
             VEUsuario.Show();
+        }
+
+        private void btnConexionBD_Click(object sender, EventArgs e)
+        {
+            FrmConexionBD cn = new FrmConexionBD();
+            cn.ShowDialog();
+        }
+
+        private void FrmMenu_Activated(object sender, EventArgs e)
+        {
+
+            //if (frmlogin.flag == true)
+            //{
+            //        frmconexionbd bd = new frmconexionbd();
+            //        bd.showdialog();
+            //        frmlogin.flag = false;
+            //        timer.stop();
+            //}
         }
     }
 }

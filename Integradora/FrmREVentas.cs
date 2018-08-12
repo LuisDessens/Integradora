@@ -70,7 +70,7 @@ namespace Integradora
                 btnSalir.Text = "SALIR";
             }
             //REPORTE
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("Select Id_venta, Id_producto, precio, Id_cliente, Id_usuario, fecha from ventas", cn);
             MySqlDataReader leer = cmd.ExecuteReader();

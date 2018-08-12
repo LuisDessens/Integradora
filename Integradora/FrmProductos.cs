@@ -20,7 +20,7 @@ namespace Integradora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             MySqlCommand cmd = new MySqlCommand("Select * from productos where producto like '%" + txtBuscar.Text.Trim() + "%' limit 100", cn);
             cn.Open();
             MySqlDataReader leer = cmd.ExecuteReader();
@@ -48,7 +48,7 @@ namespace Integradora
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             MySqlCommand cmd = new MySqlCommand("insert into productos values(null,'" + txtProducto.Text + "','" + txtPrecio.Text + "','" + txtCan.Text + "','" + cmbEstilo.Text + "','" + cmbTalla.Text + "','" + cmbColor.Text + "')", cn);
             cn.Open();
             cmd.ExecuteNonQuery();
@@ -66,7 +66,7 @@ namespace Integradora
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("update productos set producto='" + txtProducto.Text.Trim() + "', precio='" + txtPrecio.Text.Trim() + "', cantidad='" + txtCan.Text.Trim() + "', estilo='" + cmbEstilo.Text.Trim() + "', talla='" + cmbTalla.Text.Trim() + "', color='" + cmbColor.Text.Trim() + "'where id_producto=" + txtIdProd.Text.Trim(), cn);
             cmd.ExecuteNonQuery();
@@ -84,7 +84,7 @@ namespace Integradora
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("delete from productos where id_producto=" + txtIdProd.Text, cn);
             MySqlDataReader leer = cmd.ExecuteReader();

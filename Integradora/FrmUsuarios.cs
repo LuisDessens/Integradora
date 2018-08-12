@@ -21,7 +21,7 @@ namespace Integradora
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ////select * from (nombre de la tabla) where nombre like'(las letras del nombre a buscar)%';
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             MySqlCommand cmd = new MySqlCommand("Select * from usuarios where usuario like '%" + txtBuscar.Text.Trim() + "%' limit 50", cn);
             cn.Open();
             MySqlDataReader leer = cmd.ExecuteReader();
@@ -46,8 +46,10 @@ namespace Integradora
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
-            MySqlCommand cmd = new MySqlCommand("insert into usuarios values(null,'" + txtUsuario.Text + "'," + "'" + txtClave.Text + "'" + ",'" + cmbNivel.Text + "')", cn);
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
+            int nivel = 0;
+            if (cmbNivel.SelectedIndex == 0) { nivel = 1; } else if(cmbNivel.SelectedIndex == 1) { nivel = 2; };  
+            MySqlCommand cmd = new MySqlCommand("insert into usuarios values(null,'" + txtUsuario.Text + "'," + "'" + txtClave.Text + "'" + ",'" + nivel + "')", cn);
             cn.Open();
             cmd.ExecuteNonQuery();
             cn.Close();
@@ -65,9 +67,11 @@ namespace Integradora
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //update (nombre de la tabla) set (nombre columna) = "mariaFuentes", where id_cliente = 1;
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            int nivel = 0;
+            if (cmbNivel.SelectedIndex == 0) { nivel = 1; } else if (cmbNivel.SelectedIndex == 1) { nivel = 2; };
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
-            MySqlCommand cmd = new MySqlCommand("update usuarios set usuario='" + txtUsuario.Text.Trim() + "', clave='" + txtClave.Text.Trim() + "', nivel='" + cmbNivel.Text.Trim() + "' where id_usuario=" + txtIdUsua.Text.Trim(), cn);
+            MySqlCommand cmd = new MySqlCommand("update usuarios set usuario='" + txtUsuario.Text.Trim() + "', clave='" + txtClave.Text.Trim() + "', nivel='" + nivel + "' where id_usuario=" + txtIdUsua.Text.Trim(), cn);
             cmd.ExecuteNonQuery();
             cn.Close();
             if (btnEnglish.Text.CompareTo("ENGLISH") == 0)
@@ -84,7 +88,7 @@ namespace Integradora
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             //delete from (nombre de la table) where id_clave='202';
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("delete from usuarios where id_usuario=" + txtIdUsua.Text, cn);
             MySqlDataReader leer = cmd.ExecuteReader();
@@ -151,6 +155,7 @@ namespace Integradora
                 label3.Text = "CLAVE";
                 label4.Text = "NIVEL";
             }
+            cmbNivel.SelectedIndex = 0;
         }
     }
 }

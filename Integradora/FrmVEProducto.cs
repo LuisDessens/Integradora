@@ -55,7 +55,7 @@ namespace Integradora
         private void FrmVEProducto_Load(object sender, EventArgs e)
         {
             //REPORTE
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("Select producto, Id_producto from productos", cn);
             MySqlDataReader lector = cmd.ExecuteReader();
@@ -70,7 +70,7 @@ namespace Integradora
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             //REPORTE COMBOBOX
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("select fecha, producto, productos.precio from productos, ventas where ventas.Id_producto=productos.Id_producto and ventas.Id_producto=" + comboBox1.SelectedItem.ToString().Substring(41, 11), cn);
             MySqlDataReader lector = cmd.ExecuteReader();

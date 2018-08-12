@@ -17,6 +17,7 @@ namespace Integradora
         int contador;
         bool salir;
         public static string idioma;
+        public static Boolean flag = false;
         public FrmLogin()
         {
             InitializeComponent();
@@ -44,7 +45,7 @@ namespace Integradora
                 {
                     FrmLogin.idioma = "ENGLISH";
                 }
-
+                flag = true;
             }
             else
             {

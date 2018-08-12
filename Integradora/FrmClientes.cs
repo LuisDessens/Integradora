@@ -20,7 +20,7 @@ namespace Integradora
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("Select * from clientes where cliente like '%" + txtBuscar.Text.Trim() + "%' limit 50", cn);
             MySqlDataReader leer = cmd.ExecuteReader();
@@ -45,7 +45,7 @@ namespace Integradora
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             MySqlCommand cmd = new MySqlCommand("insert into clientes values(null,'" + txtCliente.Text + "'," + "'" + txtDomi.Text + "'" + ",'" + txtTel.Text + "')", cn);
             cn.Open();
             cmd.ExecuteNonQuery();
@@ -64,7 +64,7 @@ namespace Integradora
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("update clientes set cliente='" + txtCliente.Text.Trim() + "', domicilio='" + txtDomi.Text.Trim() + "', telefono='" + txtTel.Text.Trim() + "' where id_cliente=" + txtIdClien.Text.Trim(), cn);
             cmd.ExecuteNonQuery();
@@ -82,7 +82,7 @@ namespace Integradora
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            MySqlConnection cn = new MySqlConnection("host=localhost; uid=root; pwd=secret; database=base_integ;");
+            MySqlConnection cn = new MySqlConnection("host=" + FrmConexionBD.host + "; uid=" + FrmConexionBD.uid + "; pwd=" + FrmConexionBD.pwd + "; database=" + FrmConexionBD.database + ";");
             cn.Open();
             MySqlCommand cmd = new MySqlCommand("delete from clientes where id_Cliente=" + txtIdClien.Text, cn);
             MySqlDataReader leer = cmd.ExecuteReader();
