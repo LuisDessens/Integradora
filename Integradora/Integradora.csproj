@@ -32,6 +32,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,14 +49,125 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="FrmClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FrmClientes.Designer.cs">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMenu.Designer.cs">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmREClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmREClientes.Designer.cs">
+      <DependentUpon>FrmREClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmREProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmREProductos.Designer.cs">
+      <DependentUpon>FrmREProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmREUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmREUsuarios.Designer.cs">
+      <DependentUpon>FrmREUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmREVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmREVentas.Designer.cs">
+      <DependentUpon>FrmREVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTotalDVDCP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTotalDVDCP.Designer.cs">
+      <DependentUpon>FrmTotalDVDCP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuarios.Designer.cs">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVEProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVEProducto.Designer.cs">
+      <DependentUpon>FrmVEProducto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmVEUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmVEUsuario.Designer.cs">
+      <DependentUpon>FrmVEUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmClientes.resx">
+      <DependentUpon>FrmClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenu.resx">
+      <DependentUpon>FrmMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmREClientes.resx">
+      <DependentUpon>FrmREClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmREProductos.resx">
+      <DependentUpon>FrmREProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmREUsuarios.resx">
+      <DependentUpon>FrmREUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmREVentas.resx">
+      <DependentUpon>FrmREVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTotalDVDCP.resx">
+      <DependentUpon>FrmTotalDVDCP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmUsuarios.resx">
+      <DependentUpon>FrmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVEProducto.resx">
+      <DependentUpon>FrmVEProducto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmVEUsuario.resx">
+      <DependentUpon>FrmVEUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
